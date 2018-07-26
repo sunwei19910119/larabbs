@@ -11,24 +11,9 @@ class RepliesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index', 'show']]);
+        $this->middleware('auth');
     }
 
-	public function index()
-	{
-		$replies = Reply::paginate();
-		return view('replies.index', compact('replies'));
-	}
-
-    public function show(Reply $reply)
-    {
-        return view('replies.show', compact('reply'));
-    }
-
-	public function create(Reply $reply)
-	{
-		return view('replies.create_and_edit', compact('reply'));
-	}
 
 	public function store(ReplyRequest $request)
 	{
@@ -36,19 +21,6 @@ class RepliesController extends Controller
 		return redirect()->route('replies.show', $reply->id)->with('message', 'Created successfully.');
 	}
 
-	public function edit(Reply $reply)
-	{
-        $this->authorize('update', $reply);
-		return view('replies.create_and_edit', compact('reply'));
-	}
-
-	public function update(ReplyRequest $request, Reply $reply)
-	{
-		$this->authorize('update', $reply);
-		$reply->update($request->all());
-
-		return redirect()->route('replies.show', $reply->id)->with('message', 'Updated successfully.');
-	}
 
 	public function destroy(Reply $reply)
 	{
