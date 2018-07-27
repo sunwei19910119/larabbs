@@ -19,6 +19,7 @@
         "overtrue/pinyin": "*",
         "predis/predis": "*",
         "spatie/laravel-permission": "2.*",
+        "summerblue/administrator": "~1.1",
         "viacreative/sudo-su": "~1.1"
     },
     "require-dev": {
