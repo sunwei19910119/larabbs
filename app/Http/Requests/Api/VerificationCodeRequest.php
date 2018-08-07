@@ -2,14 +2,9 @@
 
 namespace App\Http\Requests\Api;
 
-use Dingo\Api\Http\FormRequest;
 
 class VerificationCodeRequest extends FormRequest
 {
-    public function authorize()
-    {
-        return true;
-    }
 
     public function rules()
     {
