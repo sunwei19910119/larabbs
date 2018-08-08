@@ -8,6 +8,27 @@
 
 **包含：BBS网站前端；管理后台；API接口；**
 
+**部署安装：** 
+1.安装扩展：
+```$xslt
+composer install
+```
+2.复制环境文件：
+```$xslt
+cp .env.example .env
+```
+3.生成秘钥：
+```$xslt
+php artisan key:generate
+php artisan jwt:secret
+```
+4.初始化数据库:
+```$xslt
+php artisan migrate --seed
+```
+
+
+
 **网站前台页面：**
 ![avatar](https://fsdhubcdn.phphub.org/uploads/images/201710/24/1/E2TdbTLxim.png)
 
