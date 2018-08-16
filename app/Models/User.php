@@ -89,6 +89,12 @@ class User extends Authenticatable implements JWTSubject
         $this->attributes['avatar'] = $path;
     }
 
+    public function markAsRead()
+    {
+        $this->notification_count = 0;
+        $this->save();
+        $this->unreadNotifications->markAsRead();
+    }
 
     public function getJWTIdentifier()
     {
